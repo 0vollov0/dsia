@@ -1,21 +1,10 @@
-class Node {
-    constructor(val) {
-        this._data = val;
+const Node = require('../Node');
+
+class LinkedListNode extends Node {
+    constructor(data) {
+        super(data);
         this._front = this._rear = this;
     }
-
-    update(val) {
-        this._data = val;
-    }
-
-    get data() {
-        return this._data;
-    }
-
-    set data(val) {
-        this._data = val;
-    }
-
     get front() {
         return this._front;
     }
@@ -33,4 +22,4 @@ class Node {
     }
 }
 
-module.exports = Node;
+module.exports = LinkedListNode;
