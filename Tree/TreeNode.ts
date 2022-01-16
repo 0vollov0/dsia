@@ -1,6 +1,6 @@
 import MotherNode from '../MotherNode';
 
-export class TreeNode extends MotherNode {
+class TreeNode extends MotherNode {
     private _children: TreeNode[];
     constructor(data: any) {
         super(data);
@@ -11,3 +11,5 @@ export class TreeNode extends MotherNode {
         return this._children;
     }
 }
+
+export default TreeNode;

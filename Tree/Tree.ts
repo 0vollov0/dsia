@@ -1,4 +1,4 @@
-import {TreeNode as Node} from './TreeNode';
+import Node from './TreeNode';
 
 class Tree {
     private _root: Node;
