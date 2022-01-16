@@ -132,4 +132,4 @@ dist
 # javascript
 *.js
 !_*.js
-outDir
+./output
