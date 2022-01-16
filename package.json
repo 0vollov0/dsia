@@ -4,11 +4,22 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./output/index.js"
   },
   "author": "0vollov0",
   "license": "MIT",
   "devDependencies": {
     "typescript": "4.5.4"
+  },
+  "keywords": ["data structure","algorithm"],
+  "homepage": "https://github.com/0vollov0/DataStructure",
+  "bugs": {
+    "email": "psk876@naver.com",
+    "url": "https://github.com/0vollov0/DataStructure/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0vollov0/DataStructure.git"
   }
 }
