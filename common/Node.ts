@@ -1,4 +1,4 @@
-class MotherNode {
+class Node {
     private _data: any;
 
     constructor(data: any) {
@@ -22,4 +22,4 @@ class MotherNode {
     }
 }
 
-export default MotherNode;
+export default Node;

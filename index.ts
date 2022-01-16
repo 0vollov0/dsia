@@ -1,7 +1,7 @@
 // const LinkedList = require('./LinkedList/LinkedList');
-import Tree from './Tree/Tree';
-import TreeNode from './Tree/TreeNode';
-import LinkedList from './LinkedList/LinkedList'
+import Tree from './tree/Tree';
+import TreeNode from './tree/TreeNode';
+import LinkedList from './linkedList/LinkedList'
 
 const tree = new Tree();
 

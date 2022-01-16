@@ -1,6 +1,6 @@
-import MotherNode from '../MotherNode';
+import Node from '../common/Node';
 
-class LinkedListNode extends MotherNode {
+class LinkedListNode extends Node {
     private _front: this;
     private _rear: this;
     constructor(data: any) {

@@ -1,6 +1,6 @@
-import MotherNode from '../MotherNode';
+import Node from '../common/Node';
 
-class TreeNode extends MotherNode {
+class TreeNode extends Node {
     private _children: TreeNode[];
     constructor(data: any) {
         super(data);
