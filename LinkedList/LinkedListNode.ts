@@ -1,7 +1,9 @@
-const Node = require('../Node');
+import MotherNode from '../MotherNode';
 
-class LinkedListNode extends Node {
-    constructor(data) {
+class LinkedListNode extends MotherNode {
+    private _front: this;
+    private _rear: this;
+    constructor(data: any) {
         super(data);
         this._front = this._rear = this;
     }
@@ -22,4 +24,4 @@ class LinkedListNode extends Node {
     }
 }
 
-module.exports = LinkedListNode;
+export default LinkedListNode;

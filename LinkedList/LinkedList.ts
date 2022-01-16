@@ -1,12 +1,13 @@
-const Node = require('./LinkedListNode.js');
+import Node from './LinkedListNode.js';
 
 class LinkedList {
+    private _head: any;
+    private _tail: any;
+    private _current: any;
     constructor() {
-        this._head = null;
-        this._tail = null;
-        this._current = null;
+        this._head = this._tail = this._current = null;
     }
-    add(data) {
+    add(data: any) {
         const node = new Node(data);
         if (!this.head || !this.tail) {
             this.head = this.tail = this.current = node;
@@ -21,7 +22,7 @@ class LinkedList {
     pop() {
         if (this.head && this.tail) {
             if (this.head === this.tail) {
-                clear();
+                this.clear();
                 return;
             }
             this.tail.front.rear = this.head;
@@ -47,7 +48,7 @@ class LinkedList {
     clear() {
         this.head = this.tail = this.current = null;
     }
-    findFirst(data) {
+    findFirst(data: any) {
         if (this.isEmpty()) return null;
         let foundNode = null;
         while (true) {
@@ -63,7 +64,7 @@ class LinkedList {
         }
         return foundNode;
     }
-    findLast(data) {
+    findLast(data: any) {
         if (this.isEmpty()) return null;
         let foundNode = null;
         while (true) {
@@ -107,4 +108,4 @@ class LinkedList {
     }
 }
 
-module.exports = LinkedList;
+export default LinkedList;

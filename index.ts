@@ -1,6 +1,7 @@
-const LinkedList = require('./LinkedList/LinkedList');
-const Tree = require('./Tree/Tree');
-const TreeNode = require('./Tree/TreeNode');
+// const LinkedList = require('./LinkedList/LinkedList');
+import Tree from './Tree/Tree';
+import TreeNode from './Tree/TreeNode';
+import LinkedList from './LinkedList/LinkedList'
 
 const tree = new Tree();
 
@@ -18,4 +19,11 @@ tree.preOrderTraverse(tree.root, array);
 console.log(array.shift(), array);
 tree.levelOrderTraverse(tree.root, array);
 console.log(array);
-// tree.preOrder(tree.root);
+
+const linkedList = new LinkedList();
+linkedList.add(0);
+linkedList.add(1);
+linkedList.add(2);
+linkedList.add(3);
+
+console.log(linkedList);
