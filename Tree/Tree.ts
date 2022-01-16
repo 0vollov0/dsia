@@ -1,15 +1,16 @@
-const Node = require('./TreeNode.js');
+import {TreeNode as Node} from './TreeNode';
 
 class Tree {
+    private _root: Node;
     constructor() {
         this._root = null;
     }
 
-    get root() {
+    get root(): any {
         return this._root;
     }
 
-    set root(data) {
+    set root(data: any) {
         this._root = new Node(data);
     }
 
@@ -17,7 +18,7 @@ class Tree {
         this.root = null;
     }
 
-    preOrderTraverse(node, output) {
+    preOrderTraverse(node: Node, output: any[]) {
         if(!node) return;
         // https://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
         if(node === this.root) while(output.length > 0) output.pop();
@@ -26,7 +27,7 @@ class Tree {
         this.preOrderTraverse(node.children[1],output);
     }
 
-    inOrderTraverse(node, output) {
+    inOrderTraverse(node: Node, output: any[]) {
         if(!node) return;
         if(node === this.root) while(output.length > 0) output.pop();
         this.inOrderTraverse(node.children[0],output);
@@ -34,7 +35,7 @@ class Tree {
         this.inOrderTraverse(node.children[1],output);
     }
 
-    postOrderTraverse(node, output) {
+    postOrderTraverse(node: Node, output: any[]) {
         if(!node) return;
         if(node === this.root) while(output.length > 0) output.pop();
         this.postOrderTraverse(node.children[0],output);
@@ -42,7 +43,7 @@ class Tree {
         output.push(node.data);
     }
 
-    levelOrderTraverse(node, output) {
+    levelOrderTraverse(node: Node, output: any[]) {
         if(!this.root) return;
         while(output.length > 0) output.pop();
         const stackQueue = new Array(node);
@@ -55,4 +56,4 @@ class Tree {
     }
 }
 
-module.exports = Tree;
+export default Tree;

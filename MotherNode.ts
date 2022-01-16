@@ -1,9 +1,11 @@
-class Node {
-    constructor(data) {
+class MotherNode {
+    private _data: any;
+
+    constructor(data: any) {
         this._data = data;
     }
 
-    update(data) {
+    update(data: any) {
         this._data = data;
     }
 
@@ -20,4 +22,4 @@ class Node {
     }
 }
 
-module.exports = Node;
+export default MotherNode;
