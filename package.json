@@ -1,11 +1,11 @@
 {
-  "name": "data-structures-including-algorithms",
+  "name": "dsia",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "data structures including algorithms",
+  "main": "/js/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node ./output/index.js"
+    "start": "tsc && node /js/index.js"
   },
   "author": "0vollov0",
   "license": "MIT",
