@@ -4,7 +4,7 @@
         "module": "CommonJS",
         "removeComments": true,
         "declaration": true,
-        "outDir": "dist"
+        "outDir": "lib"
     },
     "include": [
         "*.ts"
