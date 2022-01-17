@@ -6,9 +6,14 @@
   "types": "/dist/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node ./dist/index.js"
+    "start": "tsc && node ./dist/index.js",
+    "build": "tsc"
   },
-  "author": "0vollov0",
+  "author": {
+    "name": "Park SinGyu",
+    "email": "psk876@naver.com",
+    "url": "https://github.com/0vollov0"
+  },
   "license": "MIT",
   "devDependencies": {
     "typescript": "4.5.4"
@@ -19,14 +24,14 @@
     "linkedList",
     "Tree"
   ],
-  "homepage": "https://github.com/0vollov0/DataStructure",
+  "homepage": "https://github.com/0vollov0/dsia",
   "bugs": {
     "email": "psk876@naver.com",
-    "url": "https://github.com/0vollov0/DataStructure/issues"
+    "url": "https://github.com/0vollov0/dsia/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/0vollov0/DataStructure.git"
+    "url": "https://github.com/0vollov0/dsia.git"
   },
   "publisher": "0vollov0"
 }
