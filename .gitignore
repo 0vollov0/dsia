@@ -131,3 +131,6 @@ dist
 
 # yarn
 yarn.lock
+
+# pacakge-lock
+pacakge-lcok.json
