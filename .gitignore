@@ -134,3 +134,7 @@ yarn.lock
 
 # pacakge-lock
 pacakge-lcok.json
+
+# debug
+
+/debug
