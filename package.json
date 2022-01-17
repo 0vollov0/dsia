@@ -12,7 +12,7 @@
   "devDependencies": {
     "typescript": "4.5.4"
   },
-  "keywords": ["data structure","algorithm"],
+  "keywords": ["data structure","algorithm","linkedList","Tree"],
   "homepage": "https://github.com/0vollov0/DataStructure",
   "bugs": {
     "email": "psk876@naver.com",
