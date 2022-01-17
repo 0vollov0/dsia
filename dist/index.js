@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.LinkedListNode = exports.LinkedList = exports.TreeNode = exports.Tree = void 0;
+exports.TreeNode = exports.Tree = exports.LinkedListNode = exports.LinkedList = void 0;
 var index_1 = require("./linkedList/index");
 Object.defineProperty(exports, "LinkedList", { enumerable: true, get: function () { return index_1.LinkedList; } });
 Object.defineProperty(exports, "LinkedListNode", { enumerable: true, get: function () { return index_1.LinkedListNode; } });

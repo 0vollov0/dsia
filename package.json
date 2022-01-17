@@ -2,10 +2,10 @@
   "name": "dsia",
   "version": "1.0.1",
   "description": "data structures including algorithms",
-  "main": "/js/index.js",
+  "main": "/dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node ./js/index.js"
+    "start": "tsc && node ./dist/index.js"
   },
   "author": "0vollov0",
   "license": "MIT",
