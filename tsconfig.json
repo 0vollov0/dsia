@@ -3,7 +3,7 @@
         "target": "ES5",
         "module": "CommonJS",
         "removeComments": true,
-        "outDir": "./output"
+        "outDir": "./js"
     },
     "include": [
         "*.ts"
