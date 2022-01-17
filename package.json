@@ -1,6 +1,6 @@
 {
   "name": "dsia",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "data structures including algorithms",
   "main": "/js/index.js",
   "scripts": {
@@ -12,7 +12,12 @@
   "devDependencies": {
     "typescript": "4.5.4"
   },
-  "keywords": ["data structure","algorithm","linkedList","Tree"],
+  "keywords": [
+    "data structure",
+    "algorithm",
+    "linkedList",
+    "Tree"
+  ],
   "homepage": "https://github.com/0vollov0/DataStructure",
   "bugs": {
     "email": "psk876@naver.com",
