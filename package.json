@@ -8,9 +8,8 @@
     ".": "./lib/index.js"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "tsc && node ./lib/index.js",
-    "build": "tsc"
+    "test": "tsc && node ./lib/test.js",
+    "start": "node ./lib/index.js"
   },
   "author": {
     "name": "Park SinGyu",
