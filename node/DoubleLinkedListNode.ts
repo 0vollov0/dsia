@@ -2,6 +2,7 @@ import LinkedListNode from './LinkedListNode';
 
 class DoubleLinkedListNode extends LinkedListNode {
     private _previous: any;
+    node: LinkedListNode;
     constructor(data: any) {
         super(data);
         this._previous = this.next = this;
@@ -9,7 +10,6 @@ class DoubleLinkedListNode extends LinkedListNode {
     get previous() {
         return this._previous;
     }
-
     set previous(node) {
         this._previous = node;
     }
