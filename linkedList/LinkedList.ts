@@ -1,6 +1,6 @@
-import Node from '../node/DoubleLinkedListNode';
+import Node from '../node/LinkedListNode';
 
-class DoubleLinkedList {
+class LinkedList {
     private _head: any;
     private _tail: any;
     private _current: any;
@@ -12,10 +12,7 @@ class DoubleLinkedList {
         if (!this.head || !this.tail) {
             this.head = this.tail = this.current = node;
         } else {
-            node.previous = this.tail;
-            this.tail.next = node;
-            node.next = this.head;
-            this.head.previous = node;
+            this.tail.rear = node;
             this.tail = node;
         }
     }
@@ -25,23 +22,23 @@ class DoubleLinkedList {
                 this.clear();
                 return;
             }
-            this.tail.previous.next = this.head;
-            this.head.previous = this.tail.previous;
+            this.tail.front.rear = this.head;
+            this.head.front = this.tail.front;
             if (this.tail === this.current) {
-                this.current = this.tail.previous;
+                this.current = this.tail.front;
             }
-            this.tail = this.tail.previous;
+            this.tail = this.tail.front;
         }
     }
     previous() {
         if (this.current) {
-            this.current = this.current.previous;
+            this.current = this.current.front;
         }
         return this;
     }
     next() {
         if (this.current) {
-            this.current = this.current.next;
+            this.current = this.current.rear;
         }
         return this;
     }
@@ -60,7 +57,7 @@ class DoubleLinkedList {
                 foundNode = null;
                 break;
             }
-            this.head = this.head.next;
+            this.head = this.head.rear;
         }
         return foundNode;
     }
@@ -76,7 +73,7 @@ class DoubleLinkedList {
                 foundNode = null;
                 break;
             }
-            this.tail = this.tail.previous;
+            this.tail = this.tail.front;
         }
         return foundNode;
     }
@@ -108,4 +105,4 @@ class DoubleLinkedList {
     }
 }
 
-export default DoubleLinkedList;
+export default LinkedList;
