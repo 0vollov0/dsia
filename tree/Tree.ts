@@ -22,11 +22,15 @@ class Tree implements TreeInterface {
     }
 
     set root(data: number) {
-        this._root = new Node(data, this._degree_of_tree);
+        this._root = new Node(data, this._degree_of_tree, null);
     }
 
     clear() {
         this.root = null;
+    }
+
+    isEmpty(): boolean {
+        return this.root ? false : true; 
     }
 }
 

@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "tsc && node ./lib/test.js",
-    "start": "node ./lib/index.js"
+    "start": "node ./lib/test.js"
   },
   "author": {
     "name": "Park SinGyu",
