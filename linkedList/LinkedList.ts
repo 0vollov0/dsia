@@ -1,9 +1,9 @@
 import Node from '../node/LinkedListNode';
 
 class LinkedList {
-    private _head: any;
-    private _tail: any;
-    private _current: any;
+    private _head: Node;
+    private _tail: Node;
+    private _current: Node;
     constructor() {
         this._head = this._tail = this._current = null;
     }
