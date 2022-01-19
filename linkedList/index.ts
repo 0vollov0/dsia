@@ -1,7 +1,5 @@
-import LinkedListNode from './LinkedListNode';
-import LinkedList from './LinkedList';
+import DoubleLinkedList from './DoubleLinkedList';
 
 export {
-  LinkedListNode,
-  LinkedList,
+  DoubleLinkedList,
 }

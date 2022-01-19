@@ -1,4 +1,4 @@
-import Node from '../common/Node';
+import Node from './Node';
 
 class TreeNode extends Node {
     private _children: TreeNode[];

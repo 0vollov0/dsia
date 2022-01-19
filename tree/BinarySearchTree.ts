@@ -1,5 +1,5 @@
 import BinaryTree from './BinaryTree';
-import TreeNode from './TreeNode';
+import TreeNode from '../node/TreeNode';
 
 class BinarySearchTree extends BinaryTree {
   constructor() {

@@ -1,6 +1,6 @@
-import Node from './LinkedListNode.js';
+import Node from '../node/DoubleLinkedListNode';
 
-class LinkedList {
+class DoubleLinkedList {
     private _head: any;
     private _tail: any;
     private _current: any;
@@ -108,4 +108,4 @@ class LinkedList {
     }
 }
 
-export default LinkedList;
+export default DoubleLinkedList;

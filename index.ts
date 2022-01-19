@@ -1,2 +1,3 @@
-export {LinkedList, LinkedListNode} from './linkedList/index';
-export {BinaryTree, BinarySearchTree, TreeNode} from './tree/index';
+export {Node, DoubleLinkedListNode, TreeNode} from './node/index'
+export {DoubleLinkedList} from './linkedList/index';
+export {BinaryTree, BinarySearchTree} from './tree/index';

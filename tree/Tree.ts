@@ -1,4 +1,4 @@
-import Node from './TreeNode';
+import Node from '../node/TreeNode';
 
 interface TreeInterface {
     _root: Node,

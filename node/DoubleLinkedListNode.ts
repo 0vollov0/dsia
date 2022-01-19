@@ -1,4 +1,4 @@
-import Node from '../common/Node';
+import Node from '../node/Node';
 
 class LinkedListNode extends Node {
     private _front: this;
