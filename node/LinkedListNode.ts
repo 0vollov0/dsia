@@ -4,7 +4,7 @@ class LinkedListNode extends Node {
     private _next: this;
     constructor(data: any) {
         super(data);
-        this._next = this;
+        this._next = null;
     }
     
     get next() {

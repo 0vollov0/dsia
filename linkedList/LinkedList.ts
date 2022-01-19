@@ -12,73 +12,54 @@ class LinkedList {
         if (!this.head || !this.tail) {
             this.head = this.tail = this.current = node;
         } else {
-            this.tail.rear = node;
+            this.tail.next = node;
             this.tail = node;
         }
     }
-    pop() {
-        if (this.head && this.tail) {
-            if (this.head === this.tail) {
-                this.clear();
-                return;
-            }
-            this.tail.front.rear = this.head;
-            this.head.front = this.tail.front;
-            if (this.tail === this.current) {
-                this.current = this.tail.front;
-            }
-            this.tail = this.tail.front;
-        }
+    remove(...arg : any) {
+      if (typeof arg[0] === 'number') {
+        this.head = this.remove(this.head, arg[0]);
+      } else if (arg[0] instanceof Node && arg[1] != null) {
+        const node = arg[0];
+        const data = arg[1];
+        if(!node) return null;
+        if(node.data === data) return node.next;
+        node.next = this.remove(node.next, data);
+        return node;
+      } else return this.head;
     }
-    previous() {
-        if (this.current) {
-            this.current = this.current.front;
-        }
-        return this;
+    search(...arg : any) : Node {
+      if (typeof arg[0] === 'number') {
+        return this.search(this.head, arg[0]);
+      } else if (arg[0] instanceof Node && arg[1] != null) {
+        const node = arg[0];
+        const data = arg[1];
+        if(!node || node.data === data) return node;
+        return this.search(node.next, data);
+      } else return null;
     }
-    next() {
-        if (this.current) {
-            this.current = this.current.rear;
-        }
-        return this;
+    print(){
+      let node = this.head;
+      const array = new Array();
+      while (true) {
+        if(!node) break;
+        array.push(node.data);
+        node = node.next;
+      }
+      console.log(array);
     }
-    clear() {
-        this.head = this.tail = this.current = null;
+    next() : Node {
+      if (this.current.next != null) {
+        this.current = this.current.next;
+      }
+      return this.current;
     }
-    findFirst(data: any) {
-        if (this.isEmpty()) return null;
-        let foundNode = null;
-        while (true) {
-            if (this.head.data === data) {
-                foundNode = this.head;
-                break;
-            }
-            if (this.head === this.tail) {
-                foundNode = null;
-                break;
-            }
-            this.head = this.head.rear;
-        }
-        return foundNode;
+    isEmpty() : boolean {
+      return !(this.head && this.tail && this.current);
     }
-    findLast(data: any) {
-        if (this.isEmpty()) return null;
-        let foundNode = null;
-        while (true) {
-            if (this.tail.data === data) {
-                foundNode = this.tail;
-                break;
-            }
-            if (this.tail === this.head) {
-                foundNode = null;
-                break;
-            }
-            this.tail = this.tail.front;
-        }
-        return foundNode;
-    }
-    isEmpty() {
-        return this.head === null || this.tail === null;
+    clear() : boolean {
+      this.head = this.tail = this.current = null;
+      return this.isEmpty();
     }
     get head() {
         return this._head;
