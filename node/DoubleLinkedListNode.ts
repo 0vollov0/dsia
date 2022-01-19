@@ -1,27 +1,18 @@
-import Node from '../node/Node';
+import LinkedListNode from './LinkedListNode';
 
-class LinkedListNode extends Node {
-    private _front: this;
-    private _rear: this;
+class DoubleLinkedListNode extends LinkedListNode {
+    private _previous: any;
     constructor(data: any) {
         super(data);
-        this._front = this._rear = this;
+        this._previous = this.next = this;
     }
-    get front() {
-        return this._front;
-    }
-
-    set front(node) {
-        this._front = node;
+    get previous() {
+        return this._previous;
     }
 
-    get rear() {
-        return this._rear;
-    }
-
-    set rear(node) {
-        this._rear = node;
+    set previous(node) {
+        this._previous = node;
     }
 }
 
-export default LinkedListNode;
+export default DoubleLinkedListNode;
