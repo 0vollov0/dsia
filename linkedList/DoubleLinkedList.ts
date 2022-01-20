@@ -20,7 +20,7 @@ class DoubleLinkedList extends LinkedList {
   search(...arg : any) : Node {
     if (typeof arg[0] === 'number') {
       return this.search(this.head, arg[0]);
-    } else if (arg[0] instanceof Node && arg[1] != null) {
+    } else if ((arg[0] instanceof Node || (!arg[0] && arg.length > 1))&& arg[1] != null) {
       const node = arg[0];
       const data = arg[1];
       if (!node || node.data === data) return node;

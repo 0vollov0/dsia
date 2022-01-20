@@ -2,7 +2,7 @@ import Node from './Node';
 
 class TreeNode extends Node {
     private _children: TreeNode[];
-    constructor(data: number, children_size: number, parent: TreeNode) {
+    constructor(data: number, children_size: number) {
         super(data);
         this._children = new Array(children_size);
     }
@@ -13,7 +13,7 @@ class TreeNode extends Node {
 
     setChildren(index: number, data: number) {
         if(index > this._children.length-1 || index < 0) return;
-        this._children[index] = new TreeNode(data, this._children.length - 1, this);
+        this._children[index] = new TreeNode(data, this._children.length - 1);
     }
 
     removeChildren(data: number, node: TreeNode){

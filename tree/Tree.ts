@@ -22,7 +22,7 @@ class Tree implements TreeInterface {
     }
 
     set root(data: number) {
-        this._root = new Node(data, this._degree_of_tree, null);
+        this._root = new Node(data, this._degree_of_tree);
     }
 
     clear() {
