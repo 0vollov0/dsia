@@ -59,6 +59,21 @@ class BinarySearchTree extends BinaryTree {
     }
     return node;
   }
+
+  getHeight(...arg: any) : number {
+    if(this.isEmpty()) return 0;
+    if (arg.length === 0) {
+      return this.getHeight(this.root, 0);
+    } else if ((arg[0] instanceof Node || (!arg[0] && arg.length > 1))&& typeof arg[1] === 'number' ) {
+      const node = arg[0];
+      const height = arg[1];
+      if (!node) return height;
+      const left_height = this.getHeight(node.children[0], height + 1);
+      const right_height = this.getHeight(node.children[1], height + 1);
+      return left_height > right_height ? left_height : right_height;
+    }
+    return 0;
+  }
 }
 
 export default BinarySearchTree;
