@@ -35,8 +35,34 @@ function insertSort(array: number[]) {
   }
 }
 
+function mergeSort(array:number[]) {
+  let sorted_array = divide(array);
+  array.length = 0;
+  array.push(...sorted_array);
+}
+
+function divide(array:number[]) {
+  if (array.length < 2) return array;
+  const center = Math.round(array.length/2);
+  let arr_1 = divide(array.slice(0,center));
+  let arr_2 = divide(array.slice(center,array.length));
+  return conquer(arr_1, arr_2);
+}
+
+function conquer(arr_1: number[], arr_2: number[]) {
+  const array = new Array();
+  while (arr_1.length > 0 && arr_2.length > 0) {
+    if (arr_1[0] < arr_2[0]) array.push(arr_1.shift());
+    else array.push(arr_2.shift());
+  }
+  array.push(...arr_1);
+  array.push(...arr_2);
+  return array;
+}
+
 export {
   bubbleSort,
   selectionSort,
-  insertSort
+  insertSort,
+  mergeSort,
 }
