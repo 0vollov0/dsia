@@ -1,7 +1,7 @@
 class Heap {
   private _tree: number[];
   private is_max_heap: boolean;
-  constructor(is_max_heap: boolean) {
+  constructor(is_max_heap: boolean = false) {
     this._tree = new Array(null);
     this.is_max_heap = is_max_heap;
   }
