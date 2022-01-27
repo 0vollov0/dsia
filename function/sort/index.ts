@@ -60,9 +60,33 @@ function conquer(arr_1: number[], arr_2: number[]) {
   return array;
 }
 
+function quickSort(...arg: (number | number[])[]) {
+  if (!(arg[0] instanceof Array)) return;
+  const array = arg[0];
+  let pivot = (typeof arg[1] === 'number') ? arg[1] : array.length-1;
+  if(pivot <= 0) return;
+  let left = 0;
+  for (let right = 0; right < pivot; right++) {
+    if(array[left] < array[pivot]) left++;
+    else if (array[right] < array[left]) {
+      swap(array, left, right);
+      left++;
+    }
+  }
+  if (array[left] != array[pivot]) swap(array, left, pivot); 
+  quickSort(array, pivot-1);
+}
+
+function swap(array: any[], ptr_1: number, ptr_2: number) {
+  const temp = array[ptr_1];
+  array[ptr_1] = array[ptr_2];
+  array[ptr_2] = temp;
+}
+
 export {
   bubbleSort,
   selectionSort,
   insertSort,
   mergeSort,
+  quickSort,
 }
