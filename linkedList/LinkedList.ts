@@ -7,7 +7,7 @@ class LinkedList {
     constructor() {
         this._head = this._tail = this._current = null;
     }
-    add(data: any) {
+    add(data: number) {
         const node = new Node(data);
         if (!this.head || !this.tail) {
             this.head = this.tail = this.current = node;
@@ -16,7 +16,7 @@ class LinkedList {
             this.tail = node;
         }
     }
-    remove(...arg : any) {
+    remove(...arg: (number | Node)[]) {
       if (typeof arg[0] === 'number') {
         this.head = this.remove(this.head, arg[0]);
       } else if (arg[0] instanceof Node && arg[1] != null) {
@@ -28,7 +28,7 @@ class LinkedList {
         return node;
       } else return this.head;
     }
-    search(...arg : any) : Node {
+    search(...arg: (number | Node)[]): Node {
       if (typeof arg[0] === 'number') {
         return this.search(this.head, arg[0]);
       } else if (arg[0] instanceof Node && arg[1] != null) {
@@ -38,7 +38,7 @@ class LinkedList {
         return this.search(node.next, data);
       } else return null;
     }
-    print(){
+    print(): void{
       let node = this.head;
       const array = new Array();
       while (true) {
@@ -48,16 +48,16 @@ class LinkedList {
       }
       console.log(array);
     }
-    next() : Node {
+    next(): Node {
       if (this.current.next != null) {
         this.current = this.current.next;
       }
       return this.current;
     }
-    isEmpty() : boolean {
+    isEmpty(): boolean {
       return !(this.head && this.tail && this.current);
     }
-    clear() : boolean {
+    clear(): boolean {
       this.head = this.tail = this.current = null;
       return this.isEmpty();
     }
