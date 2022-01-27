@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "tsc && node ./lib/test.js",
-    "start": "node ./lib/test.js"
+    "build": "tsc"
   },
   "author": {
     "name": "Park SinGyu",
@@ -24,7 +24,9 @@
     "data structure",
     "algorithm",
     "linkedList",
-    "Tree"
+    "tree",
+    "heap",
+    "sort"
   ],
   "homepage": "https://github.com/0vollov0/dsia",
   "bugs": {
