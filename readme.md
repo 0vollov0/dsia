@@ -20,6 +20,14 @@
 |BinarySearchTree|BinaryTree|none|
 |Heap||is_max_heap: boolean = false|
 
+## Graph
+
+|Object|Extend|Constructor|
+|---|---|---|
+|Graph||none|
+|UndirectedGraph|Graph|none|
+|DirectedGraph|Graph|none|
+
 # Algorithm
 
 ## sort
