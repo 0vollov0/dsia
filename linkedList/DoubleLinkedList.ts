@@ -5,17 +5,18 @@ class DoubleLinkedList extends LinkedList {
   constructor() {
     super();
   }
-  add(data: any) {
-      const node = new Node(data);
-      if (!this.head || !this.tail) {
-          this.head = this.tail = this.current = node;
-      } else {
-          node.previous = this.tail;
-          this.tail.next = node;
-          node.next = this.head;
-          this.head.previous = node;
-          this.tail = node;
-      }
+  add() {
+    if (1 < arguments.length) return;
+    const node = new Node(arguments[0]);
+    if (!this.head || !this.tail) {
+        this.head = this.tail = this.current = node;
+    } else {
+        node.previous = this.tail;
+        this.tail.next = node;
+        node.next = this.head;
+        this.head.previous = node;
+        this.tail = node;
+    }
   }
   search(...arg : any) : Node {
     if (typeof arg[0] === 'number') {

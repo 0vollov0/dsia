@@ -1,12 +1,14 @@
 import { LinkedList } from "..";
+import EdgeLinkedList from './EdgeLinkedList';
 
 interface Graph {
   _mapper: Object;
-  insertVertex(key: string): boolean;
-  insertEdge(k1: string, k2: string): boolean;
+  get mapper(): Object;
+  insertVertex(key: any): boolean;
+  insertEdge(k1: any, k2: any, weight: number): boolean;
   deleteVertex(key: any): boolean;
-  deleteEdge(k1: string, k2: string): boolean;
-  adjacent(): LinkedList[];
+  deleteEdge(k1: any, k2: any): void;
+  adjacent(): EdgeLinkedList[];
   reset(): boolean;
 }
 

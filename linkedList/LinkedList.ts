@@ -1,20 +1,21 @@
 import Node from '../node/LinkedListNode';
 
 class LinkedList {
-    private _head: any;
-    private _tail: any;
-    private _current: any;
+    protected _head: any;
+    protected _tail: any;
+    protected _current: any;
     constructor() {
         this._head = this._tail = this._current = null;
     }
-    add(data: any) {
-        const node = new Node(data);
-        if (!this.head || !this.tail) {
-            this.head = this.tail = this.current = node;
-        } else {
-            this.tail.next = node;
-            this.tail = node;
-        }
+    add() {
+      if (1 < arguments.length) return;
+      const node = new Node(arguments[0]);
+      if (!this.head || !this.tail) {
+          this.head = this.tail = this.current = node;
+      } else {
+          this.tail.next = node;
+          this.tail = node;
+      }
     }
     remove(...arg: (any | Node)[]) {
       if (!(arg[0] instanceof Node) && !arg[1]) {
@@ -72,35 +73,33 @@ class LinkedList {
       this.head = this.tail = this.current = null;
       return this.isEmpty();
     }
-
     getTail(...arg: Node[]): Node {
       if (arg.length === 0) return this.getTail(this.head);
       if (!(arg[0] instanceof Node)) return null;
       if (arg[0].next) return this.getTail(arg[0].next);
       else return arg[0];
     }
-
-    get head() {
+    public get head() {
         return this._head;
     }
 
-    set head(node) {
+    public  set head(node) {
         this._head = node;
     }
 
-    get tail() {
+    public get tail() {
         return this._tail;
     }
 
-    set tail(node) {
+    public set tail(node) {
         this._tail = node;
     }
 
-    get current() {
+    public get current() {
         return this._current;
     }
 
-    set current(node) {
+    public set current(node) {
         this._current = node;
     }
 }
