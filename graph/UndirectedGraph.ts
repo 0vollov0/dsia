@@ -1,6 +1,6 @@
 import { LinkedList } from "..";
 
-class Graph {
+class UndirectedGraph {
   private _mapper: Object;
 
   constructor() {
@@ -49,4 +49,4 @@ class Graph {
   
 }
 
-export default Graph;
+export default UndirectedGraph;
