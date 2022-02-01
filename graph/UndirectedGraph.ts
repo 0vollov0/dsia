@@ -42,9 +42,7 @@ class Graph {
   adjacent(): LinkedList[] {
     return Object.keys(this.mapper).map(key => this.mapper[key]);
   }
-
   
-
   public get mapper() : Object {
     return this._mapper;
   }
