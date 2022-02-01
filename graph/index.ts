@@ -1,5 +1,5 @@
-import Graph from './Graph';
+import UndirectedGraph from './UndirectedGraph';
 
 export {
-  Graph,
+  UndirectedGraph,
 }
