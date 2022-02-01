@@ -1,7 +1,7 @@
 import Node from './Node';
 
 class LinkedListNode extends Node {
-    private _next: this;
+    private _next: any;
     constructor(data: any) {
         super(data);
         this._next = null;
