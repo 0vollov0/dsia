@@ -1,7 +1,8 @@
 import { LinkedList } from "..";
+import Graph from './Graph';
 
-class UndirectedGraph {
-  private _mapper: Object;
+class UndirectedGraph implements Graph{
+  _mapper: {};
 
   constructor() {
     this._mapper = {};
@@ -41,6 +42,11 @@ class UndirectedGraph {
 
   adjacent(): LinkedList[] {
     return Object.keys(this.mapper).map(key => this.mapper[key]);
+  }
+
+  reset(): boolean {
+    this._mapper ={};
+    return Object.keys(this.mapper).length === 0;
   }
   
   public get mapper() : Object {
