@@ -1,5 +1,6 @@
 import Graph from './Graph';
 import EdgeLinkedList from './EdgeLinkedList';
+import Edge from './Edge';
 
 class UndirectedGraph implements Graph{
   _mapper: Object;
@@ -42,7 +43,29 @@ class UndirectedGraph implements Graph{
   reset(): boolean {
     this._mapper = {};
     return Object.keys(this.mapper).length === 0;
+  
+  
   }
+  dfs(key: any): EdgeLinkedList[]{
+    const begin_vertex = this.mapper[key];
+    if(!begin_vertex) return null;
+    const visited = new Array();
+    const stack = [begin_vertex.head.data];
+    
+    while (stack.length > 0) {
+      const vertex_key = stack.pop();
+      const new_vertex = this.mapper[vertex_key];
+      if(new_vertex.head.data !== null && visited.indexOf(new_vertex.head.data) === -1) {
+        const vertexes = new_vertex.getEdges()
+          .filter((edge: Edge) => stack.indexOf(edge.data) === -1)
+          .map((edge: Edge) => edge.data);
+        stack.push(...vertexes);
+        visited.push(new_vertex.head.data);
+      }
+    }
+    return visited;
+  }
+
 }
 
 export default UndirectedGraph;

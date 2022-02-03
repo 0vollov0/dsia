@@ -16,6 +16,20 @@ class EdgeLinkedList extends LinkedList {
         this.tail = edge;
     }
   }
+
+  print() {
+    console.log(this.head.data);
+  }
+
+  getEdges(): Edge[] {
+    const edges = new Array();
+    let ptr = this.head;
+    while (ptr) {
+      edges.push(ptr);
+      ptr = ptr.next;
+    }
+    return edges;
+  }
 }
 
 export default EdgeLinkedList;
