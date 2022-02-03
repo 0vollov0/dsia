@@ -57,5 +57,24 @@ class DirectedGraph implements Graph{
     }
     return visited;
   }
+  bfs(begin: any, end: any = null): EdgeLinkedList[]{
+    const begin_vertex = this.mapper[begin];
+    if(!begin_vertex) return null;
+    const visited = new Array();
+    const queue = [begin_vertex.head.data];
+    while (queue.length > 0) {
+      const vertex_key = queue.shift();
+      const new_vertex = this.mapper[vertex_key];
+      if(new_vertex.head.data !== null && visited.indexOf(new_vertex.head.data) === -1) {
+        const vertexes = new_vertex.getEdges()
+          // .filter((edge: Edge) => queue.indexOf(edge.data) === -1)
+          .map((edge: Edge) => edge.data);
+          queue.push(...vertexes);
+        visited.push(new_vertex.head.data);
+        if(new_vertex.head.data === end) break;
+      } 
+    }
+    return visited;
+  }
 }
 export default DirectedGraph;
