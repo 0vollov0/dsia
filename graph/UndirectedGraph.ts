@@ -46,8 +46,8 @@ class UndirectedGraph implements Graph{
   
   
   }
-  dfs(key: any): EdgeLinkedList[]{
-    const begin_vertex = this.mapper[key];
+  dfs(begin: any, end: any = null): EdgeLinkedList[]{
+    const begin_vertex = this.mapper[begin];
     if(!begin_vertex) return null;
     const visited = new Array();
     const stack = [begin_vertex.head.data];
@@ -61,11 +61,11 @@ class UndirectedGraph implements Graph{
           .map((edge: Edge) => edge.data);
         stack.push(...vertexes);
         visited.push(new_vertex.head.data);
+        if(new_vertex.head.data === end) break;
       }
     }
     return visited;
   }
-
 }
 
 export default UndirectedGraph;
