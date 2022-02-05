@@ -1,23 +1,42 @@
+import {HeapNode} from '..';
+
 class Heap {
-  private _tree: number[];
+  private _tree: any[];
   private is_max_heap: boolean;
   constructor(is_max_heap: boolean = false) {
     this._tree = new Array(null);
     this.is_max_heap = is_max_heap;
   }
   
-  get tree(): number[] {
+  get tree(): any[] {
     return this._tree.slice(1,this._tree.length);
   }
   
-  insert(data: number): void {
-    this._tree.push(data);
+  // insert(data: number): void {
+  //   this._tree.push(data);
+  //   let new_node_index = this._tree.length-1;
+  //   let parent_index = Math.floor(new_node_index/2);
+  //   while (parent_index > 0) {
+  //     if (this.is_max_heap
+  //           ? (this._tree[new_node_index] > this._tree[parent_index])
+  //           : (this._tree[new_node_index] < this._tree[parent_index])) {
+  //       const temp = this._tree[new_node_index];
+  //       this._tree[new_node_index] = this._tree[parent_index];
+  //       this._tree[parent_index] = temp;
+  //     } else break;
+  //     new_node_index = parent_index;
+  //     parent_index = Math.floor(new_node_index/2);
+  //   }
+  // }
+
+  insert(data: number, node: Object = {}): void {
+    this._tree.push(new HeapNode(data, node));
     let new_node_index = this._tree.length-1;
     let parent_index = Math.floor(new_node_index/2);
     while (parent_index > 0) {
       if (this.is_max_heap
-            ? (this._tree[new_node_index] > this._tree[parent_index])
-            : (this._tree[new_node_index] < this._tree[parent_index])) {
+            ? (this._tree[new_node_index].compare(this._tree[parent_index]) > 0)
+            : (this._tree[new_node_index].compare(this._tree[parent_index]) < 0)) {
         const temp = this._tree[new_node_index];
         this._tree[new_node_index] = this._tree[parent_index];
         this._tree[parent_index] = temp;
@@ -27,8 +46,9 @@ class Heap {
     }
   }
 
-  pop(): number {
+  pop(): HeapNode {
     if (this._tree.length <= 1) return;
+    
     const return_value = this._tree[1];
     this._tree[1] = this._tree[this._tree.length-1];
     this._tree.length--;
@@ -40,11 +60,11 @@ class Heap {
       children_count = this._tree.length - (parent_node_index*2);
       if (1 < children_count) {
         if (this.is_max_heap) {
-          child_node_index = this._tree[parent_node_index*2] > this._tree[parent_node_index*2+1]
+          child_node_index = this._tree[parent_node_index*2].compare(this._tree[parent_node_index*2+1]) > 0
             ? parent_node_index*2
             : parent_node_index*2+1; 
         } else {
-          child_node_index = this._tree[parent_node_index*2] < this._tree[parent_node_index*2+1]
+          child_node_index = this._tree[parent_node_index*2].compare(this._tree[parent_node_index*2+1]) < 0
             ? parent_node_index*2
             : parent_node_index*2+1; 
         }
@@ -53,14 +73,14 @@ class Heap {
       } else break;
 
       if (this.is_max_heap) {
-        if (this._tree[parent_node_index] < this._tree[child_node_index]) {
+        if (this._tree[parent_node_index].compare(this._tree[child_node_index]) < 0) {
           const temp = this._tree[parent_node_index];
           this._tree[parent_node_index] = this._tree[child_node_index];
           this._tree[child_node_index] = temp;
           parent_node_index = child_node_index;
         } else break;
       } else {
-        if (this._tree[parent_node_index] > this._tree[child_node_index]) {
+        if (this._tree[parent_node_index].compare(this._tree[child_node_index]) > 0) {
           const temp = this._tree[parent_node_index];
           this._tree[parent_node_index] = this._tree[child_node_index];
           this._tree[child_node_index] = temp;
@@ -71,6 +91,51 @@ class Heap {
     }
     return return_value;
   }
+
+  // pop(): number {
+  //   if (this._tree.length <= 1) return;
+  //   const return_value = this._tree[1];
+  //   this._tree[1] = this._tree[this._tree.length-1];
+  //   this._tree.length--;
+    
+  //   let parent_node_index = 1;
+  //   let children_count = 0;
+  //   let child_node_index = 0;
+  //   while (true) {
+  //     children_count = this._tree.length - (parent_node_index*2);
+  //     if (1 < children_count) {
+  //       if (this.is_max_heap) {
+  //         child_node_index = this._tree[parent_node_index*2] > this._tree[parent_node_index*2+1]
+  //           ? parent_node_index*2
+  //           : parent_node_index*2+1; 
+  //       } else {
+  //         child_node_index = this._tree[parent_node_index*2] < this._tree[parent_node_index*2+1]
+  //           ? parent_node_index*2
+  //           : parent_node_index*2+1; 
+  //       }
+  //     } else if (children_count === 1) {
+  //       child_node_index = parent_node_index*2;
+  //     } else break;
+
+  //     if (this.is_max_heap) {
+  //       if (this._tree[parent_node_index] < this._tree[child_node_index]) {
+  //         const temp = this._tree[parent_node_index];
+  //         this._tree[parent_node_index] = this._tree[child_node_index];
+  //         this._tree[child_node_index] = temp;
+  //         parent_node_index = child_node_index;
+  //       } else break;
+  //     } else {
+  //       if (this._tree[parent_node_index] > this._tree[child_node_index]) {
+  //         const temp = this._tree[parent_node_index];
+  //         this._tree[parent_node_index] = this._tree[child_node_index];
+  //         this._tree[child_node_index] = temp;
+  //         parent_node_index = child_node_index;
+  //       } else break;
+  //     }
+      
+  //   }
+  //   return return_value;
+  // }
 
   sort() {
     const array = new Array();
