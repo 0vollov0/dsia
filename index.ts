@@ -1,4 +1,4 @@
-export {Node, DoubleLinkedListNode, TreeNode, LinkedListNode} from './node/index'
+export {Node, DoubleLinkedListNode, TreeNode, LinkedListNode, HeapNode} from './node/index'
 export {LinkedList, DoubleLinkedList} from './linkedList/index';
 export {BinaryTree, BinarySearchTree, Heap} from './tree/index';
 export {UndirectedGraph, DirectedGraph} from './graph/index';
