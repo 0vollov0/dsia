@@ -113,7 +113,7 @@ class DirectedGraph implements Graph{
     }
     this.findRoute(path_info, begin, result.route, [end]);
     result.route = [begin].concat(result.route.reverse());
-    return result;
+    return end === null ? path_info : result;
   }
   findRoute(path_info: object, begin: string, array: string[], route: string []) {
     if (!route) return array;
