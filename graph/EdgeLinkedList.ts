@@ -25,10 +25,23 @@ class EdgeLinkedList extends LinkedList {
     const edges = new Array();
     let ptr = this.head;
     while (ptr) {
-      edges.push(ptr);
+      if(this.head !== ptr) edges.push(ptr);
       ptr = ptr.next;
     }
     return edges;
+  }
+
+  getEdge(data: any): Edge {
+    let edge = null;
+    let ptr = this.head;
+    while (ptr) {
+      if (ptr.data == data) {
+        edge = ptr;
+        break;
+      }
+      ptr = ptr.next;
+    }
+    return edge;
   }
 }
 
