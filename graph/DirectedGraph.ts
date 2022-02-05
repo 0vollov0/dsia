@@ -1,6 +1,7 @@
 import Graph from './Graph';
 import EdgeLinkedList from './EdgeLinkedList';
 import Edge from './Edge';
+import { Heap } from '..';
 
 class DirectedGraph implements Graph{
   _mapper: Object;
@@ -75,6 +76,52 @@ class DirectedGraph implements Graph{
       } 
     }
     return visited;
+  }
+  dijkstra(begin: string, end: string = null) {
+    const begin_vertex = this.mapper[begin];
+    if(!begin_vertex) return null;
+    const heap = new Heap();
+    const path_info = {};
+    
+    Object.keys(this.mapper).forEach(key => {
+      path_info[key] = key == begin ? {distance: 0} : {distance: Number.MAX_VALUE};
+      heap.insert(path_info[key].distance, {key, previous: null});
+    })
+    
+    while (heap.tree.length > 1) {
+      const path = heap.pop();
+      const vertex_key = path.node['key'];
+      
+      if (path_info[vertex_key].distance <= path.data) {
+        const edges = this.mapper[vertex_key].getEdges();
+        edges.forEach((edge: Edge) => {
+          const vertex = this.mapper[vertex_key].getEdge(edge.data);
+          const min_distance = Math.min(path_info[edge.data].distance, path.data + vertex.weight);
+          if(path_info[edge.data].distance > min_distance) {
+            if (path_info[edge.data].route === undefined) path_info[edge.data].route = new Array();
+            path_info[edge.data].route.push(path.node['key']);
+            heap.insert(min_distance, {'key': edge.data, previous: vertex_key});
+            path_info[edge.data].distance = min_distance;
+          }
+        });
+      }
+    }
+
+    const result = {
+      'distance': path_info[end].distance,
+      'route': new Array(),
+    }
+    this.findRoute(path_info, begin, result.route, [end]);
+    result.route = [begin].concat(result.route.reverse());
+    return result;
+  }
+  findRoute(path_info: object, begin: string, array: string[], route: string []) {
+    if (!route) return array;
+    while (route.length > 0) {
+      const t = route.pop();
+      if (t !== begin) array.push(t);
+      this.findRoute(path_info, begin, array, path_info[t].route !== undefined ? [...path_info[t].route] :  null);
+    }
   }
 }
 export default DirectedGraph;
